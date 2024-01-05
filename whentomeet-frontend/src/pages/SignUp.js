@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/SignUp.css';  // 추가
+import UserApi from '../api/Api';
 
 function SignUp() {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ function SignUp() {
   const [age, setAge] = useState('');
 
   const handleSignUp = () => {
+    const ans = UserApi.SignUp(name, userId, userPw, age);
     // 여기에서 회원가입 로직을 추가할 수 있습니다.
     // 서버로 요청을 보내고 사용자 정보를 저장하는 등의 작업을 수행합니다.
     console.log('Signing up with:', name, userId, userPw, age);
