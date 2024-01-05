@@ -12,7 +12,9 @@ const UserApi = {
     },
 
     SignUp: async data => {
+        console.log("회원가입 시도")
         const response = await axiosInstance.post("/users/signup", data)
+        console.log(response)
         return response;
     }
 

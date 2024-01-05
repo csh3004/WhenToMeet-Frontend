@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/SignUp.css';  // 추가
+import '../css/SignUp.css'; 
 import UserApi from '../api/Api';
 
 function SignUp() {
@@ -11,14 +11,20 @@ function SignUp() {
   const [userPw, setuserPw] = useState('');
   const [age, setAge] = useState('');
 
-  const handleSignUp = () => {
-    const ans = UserApi.SignUp(name, userId, userPw, age);
-    // 여기에서 회원가입 로직을 추가할 수 있습니다.
-    // 서버로 요청을 보내고 사용자 정보를 저장하는 등의 작업을 수행합니다.
-    console.log('Signing up with:', name, userId, userPw, age);
+  const handleSignUp = async () => {
+    try {
+      const response = await UserApi.SignUp({ name, userId, userPw, age });
+      console.log(response.data.message);  // 서버 응답 데이터 출력
+      setName(response.data.message)
+    } catch (error) {
+      console.error('Error during sign up:', error);
+      // 에러 처리
+    }
   };
 
   return (
+    <div className='home-button'>
+      <Link to= '/'><button>go to home</button></Link>
     <div className="signup-container">
       <h2>Sign Up</h2>
       <form>
@@ -61,6 +67,7 @@ function SignUp() {
       <p>
         이미 계정이 존재하시나요? <Link to="/login">로그인 하기</Link>
       </p>
+    </div>
     </div>
   );
 }

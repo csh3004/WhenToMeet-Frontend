@@ -27,7 +27,7 @@
   
   button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #313233;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -35,6 +35,11 @@
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color: #878a8c;
   }
   
+  .home-button{
+    background-color: beige;
+    /* margin-top: 10px;
+    margin-left: 30px; */
+  }
