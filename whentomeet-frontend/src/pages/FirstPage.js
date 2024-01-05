@@ -5,6 +5,8 @@ import '../css/FirstPage.css';  // 추가
 
 function FirstPage() {
   return (
+    <div className='home-button'>
+      <Link to= '/'><button>go to home</button></Link>
     <div className="first-page-container">
       <h1>When To Meet</h1>
       <div className="button-container">
@@ -15,6 +17,7 @@ function FirstPage() {
           <button>Sign Up</button>
         </Link>
       </div>
+    </div>
     </div>
   );
 }
