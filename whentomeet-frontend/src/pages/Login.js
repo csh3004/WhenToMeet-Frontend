@@ -15,7 +15,7 @@ function Login() {
     <div className="login-container">
       <h2>Login</h2>
       <form>
-        <label>Email:</label>
+        <label>아이디:</label>
         <input
           type="text"
           value={userId}
@@ -23,7 +23,7 @@ function Login() {
           placeholder="아이디를 입력하세요."
         />
         <br />
-        <label>Password:</label>
+        <label>비밀번호:</label>
         <input
           type="password"
           value={userPw}
