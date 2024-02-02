@@ -10,16 +10,36 @@ function SignUp() {
   const [userId, setuserId] = useState('');
   const [userPw, setuserPw] = useState('');
   const [age, setAge] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showFail, setShowFail] = useState(false);
+  const [message, setMessage] = useState('')
 
   const handleSignUp = async () => {
     try {
       const response = await UserApi.SignUp({ name, userId, userPw, age });
-      console.log(response.data.message);  // 서버 응답 데이터 출력
-      setName(response.data.message)
+      console.log(response.data.message); // 서버 응답 데이터 출력
+      if (response.data.success === true) {
+        setMessage(response.data.message);
+        setShowSuccess(true);
+      }
+      if (response.data.success ===false){
+        setMessage(response.data.message)
+        setShowFail(true);
+      }
+      // setName(response.data.message)
     } catch (error) {
-      console.error('Error during sign up:', error);
+      console.error('회원가입 중 오류 발생:', error);
       // 에러 처리
     }
+  };
+
+  const handleSuccessClose = () => {
+    setShowSuccess(false);
+    // 팝업 닫을 때 추가로 처리할 로직이 있다면 여기에 추가하세요.
+  };
+  const handleFailClose = () => {
+    setShowFail(false);
+    // 팝업 닫을 때 추가로 처리할 로직이 있다면 여기에 추가하세요.
   };
 
   return (
@@ -68,6 +88,22 @@ function SignUp() {
         이미 계정이 존재하시나요? <Link to="/login">로그인 하기</Link>
       </p>
     </div>
+    {showSuccess && (
+      <div className="popup-overlay">
+        <div className="success-popup">
+          <p>{message}</p>
+          <Link to='/login'><button onClick={handleSuccessClose}>확인</button></Link>
+        </div>
+      </div>
+      )}
+      {showFail && (
+      <div className="popup-overlay">
+        <div className="success-popup">
+          <p>{message}</p>
+          <button onClick={handleFailClose}>확인</button>
+        </div>
+      </div>
+      )}
     </div>
   );
 }

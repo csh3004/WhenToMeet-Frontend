@@ -17,7 +17,15 @@ const UserApi = {
         console.log(response)
         return response;
     }
-
 }
+
+const TimeTableApi = {
+    GetMyTjmetable: async data =>{
+        const response = await axiosInstance.get("/timetable/getList", data)
+        console.log(response)
+        return response;
+    }
+}
+export {TimeTableApi}
 
 export default UserApi;

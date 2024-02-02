@@ -1,4 +1,4 @@
-/* FirstPage.css */
+  /* FirstPage.css */
 
 .first-page-container {
     display: flex;
@@ -6,12 +6,23 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    
-  }
+}
   
   h1 {
     font-size: 3em;
     margin-bottom: 20px;
+  }
+  button {
+    padding: 10px;
+    background-color: #313233;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #878a8c;
   }
   
   .button-container {
@@ -19,9 +30,4 @@
     gap: 10px;
   }
 
-  .home-button{
-    background-color: beige;
-    /* margin-top: 10px;
-    margin-left: 30px; */
-  }
   
